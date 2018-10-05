@@ -1,2 +1,0 @@
-# EOSTM
-Created with CodeSandbox

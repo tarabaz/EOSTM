@@ -1,0 +1,64 @@
+rosino arancio
+background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+
+  blu / celeste
+background: 'linear-gradient(45deg, #2196f3 30%, #21cbf3 90%)',
+
+  RossoScuro / Rosso
+background: 'linear-gradient(45deg, #420c0c 30%, #800808 90%)',
+
+  celeste
+background: 'linear-gradient(45deg, #13547a 30%, #80d0c7 90%)',
+
+  <Button
+    variant="contained"
+    style={{
+      background: "linear-gradient(45deg, #ffffff 30%, #e8e8e8 90%)",
+      borderRadius: 15,
+      border: 0,
+      color: "white",
+      //height: 28,
+      padding: "0 10px"
+    }}
+    onClick={() => {
+      let nuovoNome = this.state.friendName;
+      avatarStore.setAvatar(null);
+      let nome = { FnameAvatar: nuovoNome };
+      //alert(nome.FnameAvatar);
+      avatarStore.setAvatar(nome);
+    }}
+  >
+    <PersonPinIcon color="disabled" fontSize="large" />
+  </Button>
+
+  <Button
+    variant="outlined"
+
+    //  onClick={() => { fetchAvatar(accountStore.account.name) }}
+    onClick={() => { fetchAvatar('eosfilestore') }}
+  >
+    <IconLogin
+      color="disabled"
+      style={{ fontSize: 28, marginRight: 10 }}
+    />
+    <Typography
+      variant="button"
+      color="textSecondary"
+      style={{ flexGrow: 1 }}
+    >
+      Test caricamento avatar
+                </Typography>
+  </Button>
+
+
+
+
+  class AccountStore {
+    @observable account: IAccount | null = null
+
+    @action setAccount(account: any) {
+      this.account = account
+    }
+
+  }
+export const accountStore = new AccountStore()
